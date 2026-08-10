@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProAct Automation | Food &amp; Beverage Electrical and Automation, South East QLD</title>
+<meta name="description" content="Industrial electrical and automation for food and beverage production. Krones and Kosme lines, PLC, HMI, SCADA and drives. Based on the Gold Coast, working across South East Queensland.">
+<link rel="icon" href="ProAct_Logo.PNG">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1D2E;
+    --panel:#122A40;
+    --panel-line:#24445F;
+    --rail:#2E5C7A;
+    --amber:#F5A623;
+    --amber-dim:#8a6524;
+    --off-white:#EDF1F4;
+    --steel:#8CA3B4;
+    --radius:2px;
+    --max:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--off-white);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  section{padding:80px 0;}
+  @media (max-width:700px){section{padding:56px 0;}}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{
+    content:"";width:6px;height:6px;
+    background:var(--amber);border-radius:50%;
+    box-shadow:0 0 8px var(--amber);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;
+    border:1px solid var(--rail);
+    border-radius:var(--radius);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.85rem;letter-spacing:0.03em;
+    transition:all .2s ease;
+    background:transparent;color:var(--off-white);
+  }
+  .btn-primary{background:var(--amber);border-color:var(--amber);color:var(--ink);font-weight:600;}
+  .btn-primary:hover{background:#ffb949;border-color:#ffb949;}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber);}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,29,46,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--panel-line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:var(--max);margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;}
+  .brand img{height:32px;width:auto;}
+  nav.links{display:flex;gap:30px;font-size:0.92rem;}
+  nav.links a{color:var(--steel);transition:color .2s;}
+  nav.links a:hover{color:var(--off-white);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--off-white);font-size:1.4rem;cursor:pointer;}
+  @media (max-width:760px){
+    nav.links{
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--panel);flex-direction:column;
+      padding:20px 24px;gap:18px;
+      border-bottom:1px solid var(--panel-line);
+      display:none;
+    }
+    nav.links.open{display:flex;}
+    .menu-toggle{display:block;}
+  }
+
+  /* ---------- IMAGE SLOTS ---------- */
+  figure{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    position:relative;
+  }
+  figure img{width:100%;height:100%;object-fit:cover;}
+  figure figcaption{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;color:var(--steel);
+    padding:10px 14px;
+    border-top:1px solid var(--panel-line);
+    background:var(--panel);
+  }
+  .ratio-wide{aspect-ratio:16/9;}
+  .ratio-square{aspect-ratio:4/3;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:80px 0 64px;}
+  .hero h1{
+    font-size:clamp(2rem,4.4vw,3.2rem);
+    line-height:1.1;
+    margin:18px 0 20px;
+    color:#fff;max-width:16ch;
+  }
+  .hero h1 .accent{color:var(--amber);}
+  .hero p.lead{color:var(--steel);font-size:1.1rem;max-width:56ch;margin-bottom:32px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+  .hero-figure{aspect-ratio:21/9;}
+  @media (max-width:700px){.hero-figure{aspect-ratio:16/10;}}
+
+  /* ---------- PROSE BLOCK ---------- */
+  .block-head{max-width:60ch;margin-bottom:40px;}
+  .block-head h2{font-size:clamp(1.5rem,2.5vw,2.1rem);margin:14px 0 14px;color:#fff;}
+  .block-head p{color:var(--steel);font-size:1.02rem;}
+  .block-head p + p{margin-top:14px;}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media (max-width:800px){.gallery{grid-template-columns:1fr 1fr;}}
+  @media (max-width:520px){.gallery{grid-template-columns:1fr;}}
+
+  /* ---------- SERVICES LIST ---------- */
+  .services{border-top:1px solid var(--panel-line);}
+  .service-row{
+    display:grid;grid-template-columns:110px 1fr;
+    gap:24px;padding:26px 0;
+    border-bottom:1px solid var(--panel-line);
+  }
+  @media (max-width:600px){.service-row{grid-template-columns:1fr;gap:8px;}}
+  .service-row .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;color:var(--amber);
+    letter-spacing:0.1em;padding-top:4px;
+  }
+  .service-row h3{font-size:1.05rem;color:#fff;margin-bottom:6px;}
+  .service-row p{color:var(--steel);font-size:0.95rem;}
+
+  /* ---------- PLATFORMS ---------- */
+  .chip-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px;}
+  .chip{
+    border:1px solid var(--panel-line);
+    padding:7px 13px;border-radius:var(--radius);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.75rem;color:var(--steel);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-shell{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:var(--radius);
+    display:grid;grid-template-columns:1fr 1fr;overflow:hidden;
+  }
+  @media (max-width:840px){.contact-shell{grid-template-columns:1fr;}}
+  .contact-info{padding:40px;border-right:1px solid var(--panel-line);}
+  @media (max-width:840px){.contact-info{border-right:none;border-bottom:1px solid var(--panel-line);}}
+  .contact-info h3{color:#fff;font-size:1.2rem;margin-bottom:12px;}
+  .contact-info p{color:var(--steel);margin-bottom:26px;font-size:0.95rem;}
+  .contact-line{display:flex;flex-direction:column;gap:16px;font-size:1rem;}
+  .contact-line a{
+    color:var(--off-white);
+    border-bottom:1px solid var(--panel-line);
+    padding-bottom:12px;
+    transition:color .2s,border-color .2s;
+  }
+  .contact-line a:hover{color:var(--amber);border-color:var(--amber);}
+  .contact-line .k{
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;
+    color:var(--steel);text-transform:uppercase;letter-spacing:0.06em;
+    display:block;margin-bottom:4px;
+  }
+  .enquiry-panel{padding:40px;}
+  .enquiry-panel .panel-label{
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;
+    color:var(--steel);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;
+  }
+  .enquiry-intro{color:var(--steel);font-size:0.95rem;margin-bottom:24px;}
+  .enquiry-option{
+    display:flex;align-items:center;gap:16px;
+    border:1px solid var(--panel-line);border-radius:var(--radius);
+    padding:18px;transition:border-color .2s,background .2s;
+  }
+  .enquiry-option:hover,.enquiry-option:focus-visible{border-color:var(--amber);background:#16324a;}
+  .opt-tag{
+    flex:none;font-family:'IBM Plex Mono',monospace;
+    font-size:0.65rem;letter-spacing:0.08em;color:var(--amber);
+    border:1px solid var(--amber-dim);border-radius:var(--radius);padding:4px 7px;
+  }
+  .opt-body{display:flex;flex-direction:column;font-size:0.82rem;color:var(--steel);line-height:1.45;}
+  .opt-body strong{color:var(--off-white);font-size:0.95rem;font-weight:600;margin-bottom:2px;}
+  .opt-arrow{margin-left:auto;color:var(--rail);font-size:1.1rem;transition:color .2s,transform .2s;}
+  .enquiry-option:hover .opt-arrow{color:var(--amber);transform:translateX(3px);}
+  .enquiry-note{
+    margin-top:20px;padding-top:18px;
+    border-top:1px solid var(--panel-line);
+    font-size:0.88rem;color:var(--steel);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--panel-line);padding:40px 0 30px;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+  .footer-brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;}
+  .footer-brand img{height:24px;}
+  .footer-legal{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;color:var(--steel);line-height:1.9;text-align:right;
+  }
+  @media (max-width:600px){.footer-legal{text-align:left;}}
+  .footer-bottom{
+    margin-top:26px;padding-top:20px;
+    border-top:1px solid var(--panel-line);
+    font-size:0.78rem;color:var(--steel);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="ProAct_Logo.PNG" alt="ProAct Automation logo">
+      ProAct Automation
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#industry">Industry</a>
+      <a href="#services">What we do</a>
+      <a href="#approach">How we work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Food &amp; beverage production &middot; South East QLD</span>
+    <h1>We keep production <span class="accent">lines running.</span></h1>
+    <p class="lead">Industrial electrical and automation for food and beverage plants. One specialist who can design it, program it, wire it, commission it and hand you the documentation &mdash; no gap between the sparkie and the programmer.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="#services" class="btn btn-ghost">What we do</a>
+    </div>
+
+    <figure class="hero-figure reveal">
+      <img src="images/hero-line.jpg" alt="High-speed beverage filling line in operation">
+    </figure>
+  </div>
+</section>
+
+<!-- INDUSTRY -->
+<section id="industry">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <span class="eyebrow">Where we work</span>
+      <h2>Food and beverage is what we know</h2>
+      <p>Most of our years have been spent on high-speed FMCG lines &mdash; beverage filling, bakery, dairy. Blow moulders, fillers, labellers, palletisers, conveyor systems and the controls that tie them together.</p>
+      <p>That background means less time spent explaining your plant to us and more time fixing what's actually wrong. We've stood in front of a stopped line at 4am with a shift supervisor waiting, and we understand what every minute costs.</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="reveal">
+        <div class="ratio-square"><img src="images/line-1.jpg" alt="Krones filling line"></div>
+        <figcaption>Filling &amp; capping</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ratio-square"><img src="images/line-2.jpg" alt="Control panel and drive cabinet"></div>
+        <figcaption>Panels &amp; drives</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ratio-square"><img src="images/line-3.jpg" alt="Packaging and palletising equipment"></div>
+        <figcaption>Packaging &amp; palletising</figcaption>
+      </figure>
+    </div>
+
+    <div class="chip-row reveal">
+      <span class="chip">Krones</span>
+      <span class="chip">Kosme</span>
+      <span class="chip">Siemens S7 / TIA Portal</span>
+      <span class="chip">Rockwell Studio 5000</span>
+      <span class="chip">Schneider</span>
+      <span class="chip">Beckhoff</span>
+      <span class="chip">B&amp;R / Acopos</span>
+      <span class="chip">Danfoss &middot; Nidec</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>Two trades, one point of contact</h2>
+      <p>No job is too big or too small. A single fault to chase, or a full line upgrade from drawing to sign-off.</p>
+    </div>
+
+    <div class="services reveal">
+      <div class="service-row">
+        <span class="tag">ELECTRICAL</span>
+        <div>
+          <h3>Industrial electrical</h3>
+          <p>Licensed contracting work &mdash; switchboards, motor control, cabling, plant electrical maintenance and repairs.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <span class="tag">CONTROLS</span>
+        <div>
+          <h3>PLC, HMI and SCADA</h3>
+          <p>Programming, fault finding and modification across Siemens, Rockwell, Schneider, Beckhoff and B&amp;R.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <span class="tag">DRIVES</span>
+        <div>
+          <h3>Drives and servos</h3>
+          <p>Setup, tuning and replacement on high-speed line equipment, including Danfoss, Nidec and B&amp;R Acopos.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <span class="tag">BREAKDOWN</span>
+        <div>
+          <h3>Breakdown and fault finding</h3>
+          <p>When a line stops, we work the problem methodically and get you running &mdash; then tell you honestly what caused it.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <span class="tag">PROJECTS</span>
+        <div>
+          <h3>Upgrades and commissioning</h3>
+          <p>Design, install, commission and document. Testing and compliance records handed over in a form your team can actually use.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <span class="eyebrow">How we work</span>
+      <h2>We listen first, then build it properly</h2>
+      <p>Good automation work starts with understanding what the people running the line actually need &mdash; not what looks tidy on a drawing. So we ask, we watch the process, and we take the operators seriously.</p>
+      <p>Then we build it the way we'd want to find it ourselves: neat terminations, code that the next person can read, labelling that matches the drawings, and documentation that's still true in two years. That's the craft of it, and it's the part most people cut corners on.</p>
+      <p>The aim is simple &mdash; you should end up with something that works better than you asked for.</p>
+    </div>
+
+    <figure class="reveal">
+      <div class="ratio-wide"><img src="images/workmanship.jpg" alt="Neatly terminated control panel wiring"></div>
+      <figcaption>Work we'd be happy to have our name on</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Tell us what you're dealing with</h2>
+    </div>
+
+    <div class="contact-shell reveal">
+      <div class="contact-info">
+        <h3>ProAct Automation</h3>
+        <p>Based on the Gold Coast, working across South East Queensland.</p>
+        <div class="contact-line">
+          <a href="tel:+61481583220"><span class="k">Phone</span>+61 481 583 220</a>
+          <a href="mailto:info@proactautomation.com.au"><span class="k">Email</span>info@proactautomation.com.au</a>
+        </div>
+      </div>
+      <div class="enquiry-panel">
+        <div class="panel-label">Start an enquiry</div>
+        <p class="enquiry-intro">Tell us the site, the equipment involved and what it's doing. Attach photos of the panel, nameplate or fault screen if you have them &mdash; it usually saves a phone call.</p>
+        <a class="enquiry-option" href="https://book.servicem8.com/request_service_booking?strVendorUUID=0d01a85b-b006-4ba6-b01d-2421ea84b3cb#019feb6a-5a67-7d99-9526-488c46361b2b" target="_blank" rel="noopener">
+          <span class="opt-tag">FORM</span>
+          <span class="opt-body"><strong>Request a quote or callout</strong>Takes about a minute</span>
+          <span class="opt-arrow">&rarr;</span>
+        </a>
+        <p class="enquiry-note">Line down right now? Call rather than fill in a form.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="ProAct_Logo.PNG" alt="ProAct Automation logo">
+        ProAct Automation
+      </div>
+      <div class="footer-legal">
+        ProAct Automation Pty Ltd ATF ProAct Trust<br>
+        ABN 79 967 749 932 &middot; ACN 696 964 511<br>
+        Electrical Contractor Licence 1513222
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> ProAct Automation</span>
+      <span>Gold Coast, Queensland</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
